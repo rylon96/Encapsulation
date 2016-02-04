@@ -73,7 +73,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             String fmtDate = formatDate();
             System.out.println("Moved into cube on " + fmtDate);

@@ -21,7 +21,7 @@ public class Startup {
         */
         Manager shelly = new Manager();
         
-        shelly.newEmployeeOrientation("Steve", "Schmidt", "123-45-6789");
+        shelly.hireEmployee("Steve", "Schmidt", "123-45-6789");
         
         System.out.println("The employee's status is: " + shelly.getEmployeeStatus());
     }

@@ -34,22 +34,21 @@ public class Employee {
         this.moveIntoCubicle(cubeId);
        
     }
-    
-    // Assume this must be performed first
-    private void meetWithHrForBenefitAndSalryInfo() {
-        String fmtDate = formatDate();
-        System.out.println("Met with Hr on " + fmtDate);
-        metWithHr = true;
-    }
-
     private String formatDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
         String fmtDate = sdf.format(currentDate);
         return fmtDate;
     }
-
+    
+    // Assume this must be performed first
+    public void meetWithHrForBenefitAndSalryInfo() {
+        String fmtDate = formatDate();
+        System.out.println("Met with Hr on " + fmtDate);
+        metWithHr = true;
+    }
+    
     // Assume this is must be performed second
-    private void meetDepartmentStaff() {
+    public void meetDepartmentStaff() {
         if(metWithHr) {
             String fmtDate = formatDate();
             System.out.println("Met with Dept. Staff on " + fmtDate);
@@ -61,7 +60,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    private void reviewDeptPolicies() {
+    public void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             String fmtDate = formatDate();
             System.out.println("Reviewed Dept. Policies on " + fmtDate);
@@ -74,7 +73,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    private void moveIntoCubicle(String cubeId) {
+    public void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             String fmtDate = formatDate();
             System.out.println("Moved into cube on " + fmtDate);

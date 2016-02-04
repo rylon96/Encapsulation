@@ -10,22 +10,32 @@ import javax.swing.JOptionPane;
  */
 public class Cake {
     private String cakeName;
-    //// Both of these properties violate encapsulation rules. All should be
-    // declared private scope and should have getter and/or setter methods.
-    ///////
-    public int quantity;
-    public int size;
+    private int quantity;
+    private int size;
 
     //// Some of the methods below violate encapsulation rules. Many should
     //   be private, those that have arguments (setters) need validation rules.
     ////////
 
+    public String getCakeName(){
+        return cakeName;
+    }
     public void setCakeName(String name) {
+        if(cakeName == null || cakeName.length() < 0){
+            System.out.println("Please enter a Cake Name");
+        }
         this.cakeName = name;
     }
     
-    public int getQuantity() {
+    
+    private int getQuantity() {
         return quantity;
+    }
+    public void setQuantity(int quantity){
+        if (quantity < 0){
+            System.out.println("Please enter a Quantity");
+        }
+        this.quantity = quantity;
     }
     
     /* 
@@ -36,20 +46,27 @@ public class Cake {
     */
 
     // VERY BAD! quantity should be validated for legal range
-    public void gatherIngredients(int quantity) {
-        this.quantity = quantity;
+    public void make(int quantity){
+    this.setQuantity(quantity);
+    this.gatherIngredients();
+    this.mixIngredients();
+    this.bake();
+    this.takeFromOvenAndLetCool();
+    
+}
+    private void gatherIngredients() {
         System.out.println("Ingredients gathered");
     }
 
-    public void mixIngredients() {
+    private void mixIngredients() {
         System.out.println("Ingredients mixed");
     }
 
-    public void bake() {
+    private void bake() {
         System.out.println("Baking...");
     }
 
-    public void takeFromOvenAndLetCool() {
+    private void takeFromOvenAndLetCool() {
         System.out.println("All done baking, removed from oven, cooling...");
     }
 }
